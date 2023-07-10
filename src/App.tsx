@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import Tablero from './tablero'
 import construirBaraja from './utils/construirBaraja'
-
+import Header from './Header'
 
 function App() {
   const [bajara,setBaraja] = useState(construirBaraja())
@@ -69,12 +69,8 @@ function App() {
   //Añadir contador de intentos
 
 
-  return (<div>
-    <div> 
-      <button onClick={()=>{reiniciarPartida()}}>REINICIAR</button>
-      <h2>Intentos: {intentos}</h2>
-      {ganador&&<h1>GANASTE</h1>}
-    </div>
+  return (<div style={{minHeight:"100vh"}}>
+    <Header reiniciarPartida={()=>{reiniciarPartida()}} ganador={ganador} intentos={intentos}/>
     <Tablero baraja={bajara} parejaSeleccionada={pareja} seleccionarCarta={(carta: any)=>seleccionarCarta(carta)}/>
   </div>)
 }
