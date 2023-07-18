@@ -1,9 +1,19 @@
 .tablero {
     display: flex;
     flex-wrap: wrap;
-    width: 700px;
-    height: 600px;
-    margin: 0 auto;
-    justify-content: space-around;
-    color: white;
+    justify-content:center;
+    margin-top:25px;
+    margin-bottom:25px;
+}
+
+@media (min-width: 650px) {
+    .tablero{
+        width:650px
+    }
+}
+
+@media (max-width: 650px) {
+    .tablero{
+        width:80%
+    }
 }

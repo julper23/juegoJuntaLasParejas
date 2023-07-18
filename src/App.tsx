@@ -10,9 +10,12 @@ function App() {
   const [pareja,setPareja] = useState<any[]>([])
   const [ganador,setGanador] = useState(false)
   const [intentos,setIntentos] = useState(0);
-
-
   
+  const sonPareja = (parejaSeleccionada:any) => {
+    const [primeraCarta,segundaCarta] = parejaSeleccionada;
+    return primeraCarta.icono === segundaCarta.icono
+  }
+
   const compararPareja = (parejaSeleccionada:any) => {
     setComparando(true)
     setTimeout(() => {
@@ -20,7 +23,7 @@ function App() {
       let baraja2 = bajara;
       console.log(baraja2);
       
-      if(primeraCarta.icono === segundaCarta.icono){
+      if(sonPareja(parejaSeleccionada)){
         baraja2 = baraja2.map((carta)=>{
           if(carta.icono !== primeraCarta.icono){
             return carta
